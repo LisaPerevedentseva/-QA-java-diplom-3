@@ -5,41 +5,49 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.page;
 
 public class RegistrationPage {
 
+    // поля Имя и email
     @FindBy(how= How.XPATH, using=".//input[@name='name']")
     private ElementsCollection nameAndEmailFields;
-
-    // метод заполнения поля Имя
-    public RegistrationPage setName (String name){
-        nameAndEmailFields.get(0).setValue(name);
-        return this;
-    }
-
-    // метод заполнения поля email
-    public RegistrationPage setEmail (String email){
-        nameAndEmailFields.get(1).setValue(email);
-        return this;
-    }
 
     // поле Пароль
     @FindBy(how= How.XPATH, using=".//input[@name='Пароль']")
     private SelenideElement passwordField;
 
-    public RegistrationPage setPassword (String password){
-        passwordField.setValue(password);
-        return this;
-    }
-
     // кнопка Зарегистрироваться
     @FindBy(how= How.XPATH, using=".//button[text()='Зарегистрироваться']")
     private SelenideElement registrationButton;
 
-    public SignInPage clickRegistrationButton (){
-        registrationButton.click();
+    // нотификация Некорректный пароль
+    @FindBy(how= How.XPATH, using=".//p[text()='Некорректный пароль']")
+    private SelenideElement errorNotification;
+
+    // метод проверки отображения нотификации Некорректный пароль
+    public boolean checkVisibilityErrorNotification (){
+        return errorNotification.isDisplayed();
+    }
+
+    // кнопка Войти
+    @FindBy(how= How.XPATH, using=".//a[text()='Войти']")
+    private SelenideElement enterLink;
+
+    // нажатие на кнопку Войти
+    public SignInPage clickEnterLink (){
+        enterLink.click();
         return page(SignInPage.class);
     }
+
+    // объединенный метод регистрации
+    public void registration (String name, String email, String password){
+        nameAndEmailFields.get(0).setValue(name);
+        nameAndEmailFields.get(1).setValue(email);
+        passwordField.setValue(password);
+        registrationButton.click();
+    }
+
 
 }

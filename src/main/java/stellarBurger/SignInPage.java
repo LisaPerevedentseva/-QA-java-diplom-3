@@ -15,21 +15,10 @@ public class SignInPage {
     @FindBy(how=How.XPATH, using=".//input[@name='name']")
     private SelenideElement fieldEmail;
 
-    // заполнение поля email
-    public SignInPage setFieldEmail(String email) {
-        fieldEmail.setValue(email);
-        return this;
-    }
-
     // поле ввода пароля
     @FindBy(how=How.XPATH, using=".//input[@name='Пароль']")
     private SelenideElement fieldPassword;
 
-    // заполнение поля Пароль
-    public SignInPage setFieldPassword(String name) {
-        fieldPassword.setValue(name);
-        return this;
-    }
 
     // ссылка "Зарегистрироваться"
     @FindBy(how=How.XPATH, using=".//a[text()='Зарегистрироваться']")
@@ -41,7 +30,17 @@ public class SignInPage {
         return page(RegistrationPage.class);
     }
 
-    // заголовок "Вход"
+    // ссылка "Восстановить пароль"
+    @FindBy(how=How.XPATH, using=".//a[text()='Восстановить пароль']")
+    private SelenideElement passwordRecoveryLink;
+
+    // нажатие на кнопку восстановления пароля
+    public PasswordRecoveryPage clickPasswordRecoveryLink(){
+        passwordRecoveryLink.click();
+        return page(PasswordRecoveryPage.class);
+    }
+
+    // кнопка Войти
     @FindBy(how=How.XPATH, using=".//button[text()='Войти']")
     private SelenideElement enterButton;
 
@@ -49,5 +48,14 @@ public class SignInPage {
     public boolean checkEnterButtonVisibility(){
         return enterButton.shouldBe(visible).isDisplayed();
     }
+
+    // объединенный метод авторизации
+    public MainPageStellarBurger authorization (String email, String password){
+        fieldEmail.setValue(email);
+        fieldPassword.setValue(password);
+        enterButton.click();
+        return page(MainPageStellarBurger.class);
+    }
+
 
 }
