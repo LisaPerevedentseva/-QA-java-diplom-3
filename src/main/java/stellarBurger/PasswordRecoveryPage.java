@@ -1,6 +1,7 @@
 package stellarBurger;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -12,7 +13,7 @@ public class PasswordRecoveryPage extends HeaderElements {
     @FindBy(how = How.XPATH, using = ".//a[text()='Войти']")
     private SelenideElement enterButtonOnRecoveryPage;
 
-    // нажатие на кнопку Войти
+    @Step("Нажатие на кнопку \"Войти\" на странице восстановления пароля")
     public SignInPage clickEnterButtonOnRecoveryPage(){
         enterButtonOnRecoveryPage.click();
         return page(SignInPage.class);

@@ -1,5 +1,6 @@
 package stellarBurger;
 
+import io.qameta.allure.Step;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,7 +14,7 @@ public class AccountPage extends HeaderElements {
     @FindBy (how = How.XPATH, using = ".//p[text()='В этом разделе вы можете изменить свои персональные данные']")
     private SelenideElement explanatoryText;
 
-    // проверка отображения поясняющего текста
+   @Step ("Проверка отображения текста-пояснения о возможности изменить персональные данные в ЛК")
     public boolean checkVisibilityExplanatoryText(){
         explanatoryText.shouldBe(Condition.visible);
         return explanatoryText.isDisplayed();
@@ -23,7 +24,7 @@ public class AccountPage extends HeaderElements {
     @FindBy (how = How.XPATH, using =".//button[text()='Выход']")
     private SelenideElement exitButton;
 
-    // нажатие на кнопку Выход
+    @Step ("Нажатие на кнопку \"Выход\" в ЛК")
     public SignInPage clickExitButton(){
         exitButton.click();
         return page(SignInPage.class);

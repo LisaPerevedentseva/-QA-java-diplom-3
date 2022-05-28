@@ -2,6 +2,7 @@ package stellarBurger;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import io.qameta.allure.Description;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -18,14 +19,14 @@ public class LoginTest {
     @BeforeClass
     public static void setProperties() {
         Configuration.browser = "edge";
-
     }
 
     @After
-    public void exit(){
+    public void tearDown(){
         Selenide.closeWebDriver();
     }
 
+    @Description("Логин через кнопку в хедере")
     @Test
     public void successLoginWithButtonInHeader (){
         Assert.assertTrue(mainPage.clickAccountButtonInHeader()
@@ -33,6 +34,7 @@ public class LoginTest {
                 .checkMakeOrderButtonVisibility());
     }
 
+    @Description("Логин через кнопку на главной странице")
     @Test
     public void successLoginWithAccountButtonOnMainPage (){
         Assert.assertTrue(mainPage.clickAccountButton()
@@ -40,6 +42,7 @@ public class LoginTest {
                 .checkMakeOrderButtonVisibility());
     }
 
+    @Description("Логин через кнопку на странице регистрации")
     @Test
     public void successLoginWithButtonOnRegistrationPage (){
         Assert.assertTrue(mainPage.clickAccountButtonInHeader()
@@ -49,6 +52,7 @@ public class LoginTest {
                 .checkMakeOrderButtonVisibility());
     }
 
+    @Description("Логин через кнопку на странице восстановления пароля")
     @Test
     public void successLoginWithButtonOnRecoveryPage (){
         Assert.assertTrue(mainPage.clickAccountButtonInHeader()
@@ -57,8 +61,5 @@ public class LoginTest {
                 .authorization(email, password)
                 .checkMakeOrderButtonVisibility());
     }
-
-
-
 
 }

@@ -1,10 +1,10 @@
 package stellarBurger;
 
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.page;
@@ -24,7 +24,7 @@ public class SignInPage extends HeaderElements {
     @FindBy(how=How.XPATH, using=".//a[text()='Зарегистрироваться']")
     private SelenideElement registrationLink;
 
-    // нажатие на ссылку регистрации
+    @Step("Нажатие на ссылку регистрации на странице авторизации")
     public RegistrationPage clickRegistrationLink(){
         registrationLink.click();
         return page(RegistrationPage.class);
@@ -34,7 +34,7 @@ public class SignInPage extends HeaderElements {
     @FindBy(how=How.XPATH, using=".//a[text()='Восстановить пароль']")
     private SelenideElement passwordRecoveryLink;
 
-    // нажатие на кнопку восстановления пароля
+    @Step ("Нажатие на ссылку восстановления пароля")
     public PasswordRecoveryPage clickPasswordRecoveryLink(){
         passwordRecoveryLink.click();
         return page(PasswordRecoveryPage.class);
@@ -44,12 +44,12 @@ public class SignInPage extends HeaderElements {
     @FindBy(how=How.XPATH, using=".//button[text()='Войти']")
     private SelenideElement enterButton;
 
-    // проверка отображения кнопки Войти
+    @Step ("Проверка отображения кнопки \"Войти\" на странице авторизации")
     public boolean checkEnterButtonVisibility(){
         return enterButton.shouldBe(visible).isDisplayed();
     }
 
-    // объединенный метод авторизации
+    @Step ("Авторизация пользователя")
     public MainPageStellarBurger authorization (String email, String password){
         fieldEmail.setValue(email);
         fieldPassword.setValue(password);

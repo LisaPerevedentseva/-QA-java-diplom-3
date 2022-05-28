@@ -2,6 +2,7 @@ package stellarBurger;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
@@ -25,7 +26,7 @@ public class RegistrationPage extends HeaderElements {
     @FindBy(how= How.XPATH, using=".//p[text()='Некорректный пароль']")
     private SelenideElement errorNotification;
 
-    // метод проверки отображения нотификации Некорректный пароль
+    @Step("Проверка отображения нотификации \"Некорректный пароль\"")
     public boolean checkVisibilityErrorNotification (){
         return errorNotification.isDisplayed();
     }
@@ -34,13 +35,13 @@ public class RegistrationPage extends HeaderElements {
     @FindBy(how= How.XPATH, using=".//a[text()='Войти']")
     private SelenideElement loginLink;
 
-    // нажатие на кнопку Войти
+    @Step ("Нажатие кнопки \"Войти\" на странице регистрации")
     public SignInPage clickLoginLink(){
         loginLink.click();
         return page(SignInPage.class);
     }
 
-    // объединенный метод регистрации
+    @Step ("Регистрация пользователя")
     public void registration (String name, String email, String password){
         nameAndEmailFields.get(0).setValue(name);
         nameAndEmailFields.get(1).setValue(email);
