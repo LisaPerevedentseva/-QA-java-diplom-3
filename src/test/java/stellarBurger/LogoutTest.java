@@ -2,6 +2,7 @@ package stellarBurger;
 
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -30,7 +31,7 @@ public class LogoutTest {
                 .clickAccountButtonInHeader();
     }
 
-    @Description("Проверка логаута")
+    @DisplayName("Проверка логаута")
     @Test
     public void logoutTest(){
        Assert.assertTrue(accountPage.clickExitButton()
