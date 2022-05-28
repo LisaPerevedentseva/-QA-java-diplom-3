@@ -5,10 +5,9 @@ import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.page;
 
-public class RegistrationPage {
+public class RegistrationPage extends HeaderElements {
 
     // поля Имя и email
     @FindBy(how= How.XPATH, using=".//input[@name='name']")
@@ -33,11 +32,11 @@ public class RegistrationPage {
 
     // кнопка Войти
     @FindBy(how= How.XPATH, using=".//a[text()='Войти']")
-    private SelenideElement enterLink;
+    private SelenideElement loginLink;
 
     // нажатие на кнопку Войти
-    public SignInPage clickEnterLink (){
-        enterLink.click();
+    public SignInPage clickLoginLink(){
+        loginLink.click();
         return page(SignInPage.class);
     }
 

@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.page;
 
-public class SignInPage {
+public class SignInPage extends HeaderElements {
 
     // поле ввода email
     @FindBy(how=How.XPATH, using=".//input[@name='name']")

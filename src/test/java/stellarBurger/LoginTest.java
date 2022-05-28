@@ -44,7 +44,7 @@ public class LoginTest {
     public void successLoginWithButtonOnRegistrationPage (){
         Assert.assertTrue(mainPage.clickAccountButtonInHeader()
                 .clickRegistrationLink()
-                .clickEnterLink()
+                .clickLoginLink()
                 .authorization(email, password)
                 .checkMakeOrderButtonVisibility());
     }

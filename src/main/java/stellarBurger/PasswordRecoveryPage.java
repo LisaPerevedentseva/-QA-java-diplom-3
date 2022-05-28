@@ -6,7 +6,7 @@ import org.openqa.selenium.support.How;
 
 import static com.codeborne.selenide.Selenide.page;
 
-public class PasswordRecoveryPage {
+public class PasswordRecoveryPage extends HeaderElements {
 
     // ссылка Войти
     @FindBy(how = How.XPATH, using = ".//a[text()='Войти']")
@@ -17,6 +17,5 @@ public class PasswordRecoveryPage {
         enterButtonOnRecoveryPage.click();
         return page(SignInPage.class);
     }
-
 
 }
