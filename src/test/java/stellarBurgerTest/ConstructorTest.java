@@ -15,10 +15,6 @@ public class ConstructorTest {
 
     MainPageStellarBurger mainPage = open(MainPageStellarBurger.MAIN_PAGE_URL, MainPageStellarBurger.class);
 
-    @BeforeClass
-    public static void setProperties() {
-        Configuration.browser = "edge";
-    }
 
     @After
     public void tearDown(){

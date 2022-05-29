@@ -17,10 +17,6 @@ public class ActionInHeaderTest {
     String email = "lisaperev@yandex.ru";
     String password = "461810";
 
-    @BeforeClass
-    public static void setProperties() {
-        Configuration.browser = "edge";
-    }
 
     // авторизация перед каждым тестом
     @Before

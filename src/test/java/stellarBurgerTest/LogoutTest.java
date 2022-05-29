@@ -19,11 +19,6 @@ public class LogoutTest {
     String email = "lisaperev@yandex.ru";
     String password = "461810";
 
-    @BeforeClass
-    public static void setProperties() {
-        Configuration.browser = "edge";
-    }
-
     // авторизация перед тестом
     @Before
     public void authorizationBeforeTest(){

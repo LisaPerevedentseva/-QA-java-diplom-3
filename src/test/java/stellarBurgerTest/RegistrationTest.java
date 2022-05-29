@@ -20,11 +20,6 @@ public class RegistrationTest {
     SignInPage signInPage = page(SignInPage.class);
     RegistrationPage registrationPage = page(RegistrationPage.class);
 
-    @BeforeClass
-    public static void setProperties() {
-        Configuration.browser = "edge";
-    }
-
     String name = RandomStringUtils.randomAlphabetic(8);
     String email = RandomStringUtils.randomAlphabetic(3) + "@yandex.ru";
     String correctPassword = RandomStringUtils.randomAlphanumeric(6);
