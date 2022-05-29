@@ -1,11 +1,11 @@
-package stellarBurger;
+package stellarBurgerTest;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import com.codeborne.selenide.commands.As;
-import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.*;
+import stellarBurgerPages.AccountPage;
+import stellarBurgerPages.MainPageStellarBurger;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
@@ -38,7 +38,7 @@ public class ActionInHeaderTest {
     @Test
     public void openAccountPageTest(){
         mainPage.clickAccountButtonInHeader();
-        Assert.assertTrue("Переход в личный кабинет не выполнен", accountPage.checkVisibilityExplanatoryText());
+        Assert.assertTrue("Переход в личный кабинет не выполнен", accountPage.isExplanatoryTextVisible());
     }
 
     @DisplayName ("Проверка возвращения на главную страницу из личного кабинета по Лого")
@@ -46,7 +46,7 @@ public class ActionInHeaderTest {
     public void returnToMainPageByLogoTest(){
         mainPage.clickAccountButtonInHeader();
         Assert.assertTrue("Ошибка открытия конструктора", accountPage.clickStellarBurgerLogo()
-                .checkMakeOrderButtonVisibility());
+                .isMakeOrderButtonVisible());
 
     }
 
@@ -55,7 +55,7 @@ public class ActionInHeaderTest {
     public void openConstructorTest(){
         mainPage.clickAccountButtonInHeader();
         Assert.assertTrue("Ошибка открытия конструктора", accountPage.clickConstructorButton()
-                .checkMakeOrderButtonVisibility());
+                .isMakeOrderButtonVisible());
     }
 
 

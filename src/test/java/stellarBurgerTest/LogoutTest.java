@@ -1,12 +1,13 @@
-package stellarBurger;
+package stellarBurgerTest;
 
 import com.codeborne.selenide.Configuration;
-import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import stellarBurgerPages.AccountPage;
+import stellarBurgerPages.MainPageStellarBurger;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
@@ -34,8 +35,8 @@ public class LogoutTest {
     @DisplayName("Проверка логаута")
     @Test
     public void logoutTest(){
-       Assert.assertTrue(accountPage.clickExitButton()
-               .checkEnterButtonVisibility());
+       Assert.assertTrue("Ошибка логаута", accountPage.clickExitButton()
+               .isEnterButtonVisible());
     }
 
 }

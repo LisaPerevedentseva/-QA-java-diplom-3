@@ -1,4 +1,4 @@
-package stellarBurger;
+package stellarBurgerPages;
 
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
@@ -27,7 +27,7 @@ public class RegistrationPage extends HeaderElements {
     private SelenideElement errorNotification;
 
     @Step("Проверка отображения нотификации \"Некорректный пароль\"")
-    public boolean checkVisibilityErrorNotification (){
+    public boolean isErrorNotificationVisible(){
         return errorNotification.isDisplayed();
     }
 

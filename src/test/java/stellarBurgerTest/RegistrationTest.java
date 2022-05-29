@@ -1,13 +1,13 @@
-package stellarBurger;
+package stellarBurgerTest;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selenide;
-import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
-import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import stellarBurgerPages.MainPageStellarBurger;
+import stellarBurgerPages.RegistrationPage;
+import stellarBurgerPages.SignInPage;
 
 
 import static com.codeborne.selenide.Selenide.open;
@@ -32,19 +32,19 @@ public class RegistrationTest {
 
     @DisplayName("Регистрация с корректным паролем")
     @Test
-    public void registrationWithCorrectPasswordSuccessTest (){
+    public void successRegistrationWithCorrectPasswordTest(){
         mainPage.clickAccountButtonInHeader()
                 .clickRegistrationLink()
                 .registration(name, email, correctPassword);
-        Assert.assertTrue(signInPage.checkEnterButtonVisibility());
+        Assert.assertTrue("Ошибка регистрации", signInPage.isEnterButtonVisible());
     }
 
     @DisplayName("Регистрация с коротким паролем меньше 6 символов")
     @Test
-    public void registrationWithInCorrectPasswordFailedTest (){
+    public void failRegistrationWithIncorrectPasswordTest(){
         mainPage.clickAccountButtonInHeader()
                 .clickRegistrationLink()
                 .registration(name, email, incorrectPassword);
-        Assert.assertTrue(registrationPage.checkVisibilityErrorNotification());
+        Assert.assertTrue("Нотификация \"Некорректный пароль\" отсутствует", registrationPage.isErrorNotificationVisible());
     }
 }

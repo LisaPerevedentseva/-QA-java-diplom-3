@@ -1,5 +1,6 @@
-package stellarBurger;
+package stellarBurgerPages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
@@ -19,7 +20,7 @@ public class MainPageStellarBurger extends HeaderElements {
     @Step("Нажатие на кнопку \"Войти в аккаунт\"")
     public SignInPage clickAccountButton(){
         accountButton.click();
-        return page(SignInPage.class);
+        return Selenide.page(SignInPage.class);
     }
 
     // кнопка Оформить заказ
@@ -33,7 +34,7 @@ public class MainPageStellarBurger extends HeaderElements {
     }
 
     @Step ("Проверка отображения кнопки \"Оформить заказ\"")
-    public boolean checkMakeOrderButtonVisibility(){
+    public boolean isMakeOrderButtonVisible(){
         makeOrderButton.shouldBe(visible);
         return makeOrderButton.isDisplayed();
     }
@@ -73,7 +74,7 @@ public class MainPageStellarBurger extends HeaderElements {
     private SelenideElement bunText;
 
     @Step ("Проверка отображения названия раздела \"Булки\"")
-    public boolean checkVisibilityBunText(){
+    public boolean isBunTextVisible(){
         return bunText.isDisplayed();
     }
 
@@ -82,7 +83,7 @@ public class MainPageStellarBurger extends HeaderElements {
     private SelenideElement sauceText;
 
     @Step ("Проверка отображения названия раздела \"Соусы\"")
-    public boolean checkVisibilitySauceText(){
+    public boolean isSauceTextVisible(){
         return sauceText.isDisplayed();
     }
 
@@ -91,7 +92,7 @@ public class MainPageStellarBurger extends HeaderElements {
     private SelenideElement fillingsText;
 
     @Step ("Проверка отображения названия раздела \"Начинки\"")
-    public boolean checkVisibilityFillingsText(){
+    public boolean isFillingsTextVisible(){
         return fillingsText.isDisplayed();
     }
 

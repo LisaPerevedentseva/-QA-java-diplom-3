@@ -1,5 +1,6 @@
-package stellarBurger;
+package stellarBurgerPages;
 
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
@@ -15,7 +16,7 @@ public class AccountPage extends HeaderElements {
     private SelenideElement explanatoryText;
 
    @Step ("Проверка отображения текста-пояснения о возможности изменить персональные данные в ЛК")
-    public boolean checkVisibilityExplanatoryText(){
+    public boolean isExplanatoryTextVisible(){
         explanatoryText.shouldBe(Condition.visible);
         return explanatoryText.isDisplayed();
     }
@@ -27,7 +28,7 @@ public class AccountPage extends HeaderElements {
     @Step ("Нажатие на кнопку \"Выход\" в ЛК")
     public SignInPage clickExitButton(){
         exitButton.click();
-        return page(SignInPage.class);
+        return Selenide.page(SignInPage.class);
     }
 
 

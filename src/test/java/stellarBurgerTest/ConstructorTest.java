@@ -1,13 +1,13 @@
-package stellarBurger;
+package stellarBurgerTest;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import stellarBurgerPages.MainPageStellarBurger;
 
 import static com.codeborne.selenide.Selenide.open;
 
@@ -30,21 +30,21 @@ public class ConstructorTest {
     public void openBunsTabTest (){
         Assert.assertTrue("Раздел \"Булки\" не выбран", mainPage.clickSauceButton()
                 .clickBunsButton()
-                .checkVisibilityBunText());
+                .isBunTextVisible());
     }
 
     @DisplayName("Проверка перехода в таб \"Соусы\"")
     @Test
     public void openSauceTabTest (){
         Assert.assertTrue("Раздел \"Соусы\" не выбран", mainPage.clickSauceButton()
-                .checkVisibilitySauceText());
+                .isSauceTextVisible());
     }
 
     @DisplayName("Проверка перехода в таб \"Начинки\"")
     @Test
     public void openFillingsTabTest (){
         Assert.assertTrue("Раздел \"Начинки\" не выбран", mainPage.clickFillingsButton()
-                .checkVisibilityFillingsText());
+                .isFillingsTextVisible());
     }
 
 }

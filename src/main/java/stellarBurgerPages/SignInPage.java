@@ -1,5 +1,6 @@
-package stellarBurger;
+package stellarBurgerPages;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
@@ -27,7 +28,7 @@ public class SignInPage extends HeaderElements {
     @Step("Нажатие на ссылку регистрации на странице авторизации")
     public RegistrationPage clickRegistrationLink(){
         registrationLink.click();
-        return page(RegistrationPage.class);
+        return Selenide.page(RegistrationPage.class);
     }
 
     // ссылка "Восстановить пароль"
@@ -37,7 +38,7 @@ public class SignInPage extends HeaderElements {
     @Step ("Нажатие на ссылку восстановления пароля")
     public PasswordRecoveryPage clickPasswordRecoveryLink(){
         passwordRecoveryLink.click();
-        return page(PasswordRecoveryPage.class);
+        return Selenide.page(PasswordRecoveryPage.class);
     }
 
     // кнопка Войти
@@ -45,7 +46,7 @@ public class SignInPage extends HeaderElements {
     private SelenideElement enterButton;
 
     @Step ("Проверка отображения кнопки \"Войти\" на странице авторизации")
-    public boolean checkEnterButtonVisibility(){
+    public boolean isEnterButtonVisible(){
         return enterButton.shouldBe(visible).isDisplayed();
     }
 

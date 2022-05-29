@@ -1,4 +1,4 @@
-package stellarBurger;
+package stellarBurgerPages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;

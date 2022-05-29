@@ -1,6 +1,7 @@
-package stellarBurger;
+package stellarBurgerPages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.FindBy;
@@ -17,7 +18,7 @@ public class HeaderElements {
     @Step ("Нажатие на кнопку \"Личный кабинет\" в хедере страницы")
     public SignInPage clickAccountButtonInHeader (){
         accountButtonInHeader.click();
-        return page(SignInPage.class);
+        return Selenide.page(SignInPage.class);
     }
 
    @Step ("Проверка отображения кнопки \"Личный кабинет\" в хедере страницы")
@@ -33,7 +34,7 @@ public class HeaderElements {
     public MainPageStellarBurger clickStellarBurgerLogo (){
         stellarBurgerLogo.shouldBe(Condition.visible);
         stellarBurgerLogo.click();
-        return page(MainPageStellarBurger.class);
+        return Selenide.page(MainPageStellarBurger.class);
     }
 
     // кнопка Конструктор
@@ -43,7 +44,7 @@ public class HeaderElements {
     @Step ("Нажатие на кнопку \"Конструктор\"")
     public MainPageStellarBurger clickConstructorButton (){
         constructorButton.click();
-        return page(MainPageStellarBurger.class);
+        return Selenide.page(MainPageStellarBurger.class);
     }
 
 
