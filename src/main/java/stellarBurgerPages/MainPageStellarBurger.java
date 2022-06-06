@@ -75,7 +75,7 @@ public class MainPageStellarBurger extends HeaderElements {
     @FindBy(how = How.XPATH, using = ".//span[text()='Булки']/..")
     private SelenideElement bunText;
 
-    @Step("Проверка отображения названия раздела \"Булки\"")
+    @Step("Проверка выбора раздела \"Булки\"")
     public void isBunTabSelected() {
           bunText.shouldHave(cssClass("tab_tab_type_current__2BEPc"));
     }
@@ -84,7 +84,7 @@ public class MainPageStellarBurger extends HeaderElements {
     @FindBy(how = How.XPATH, using = ".//span[text()='Соусы']/..")
     private SelenideElement sauceText;
 
-    @Step("Проверка отображения названия раздела \"Соусы\"")
+    @Step("Проверка выбора раздела \"Соусы\"")
     public void isSauceTabSelected() {
          sauceText.shouldHave(cssClass("tab_tab_type_current__2BEPc"));
     }
@@ -93,7 +93,7 @@ public class MainPageStellarBurger extends HeaderElements {
     @FindBy(how = How.XPATH, using = ".//span[text()='Начинки']/..")
     private SelenideElement fillingsText;
 
-    @Step("Проверка отображения названия раздела \"Начинки\"")
+    @Step("Проверка выбора раздела \"Начинки\"")
     public void isFillingsTabSelected() {
         fillingsText.shouldHave(cssClass("tab_tab_type_current__2BEPc"));
     }
