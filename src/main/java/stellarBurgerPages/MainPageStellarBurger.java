@@ -98,8 +98,4 @@ public class MainPageStellarBurger extends HeaderElements {
         fillingsText.shouldHave(cssClass("tab_tab_type_current__2BEPc"));
     }
 
-
-
-
-
 }
