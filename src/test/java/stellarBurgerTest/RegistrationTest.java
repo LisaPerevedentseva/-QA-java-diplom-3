@@ -1,14 +1,12 @@
 package stellarBurgerTest;
-import com.codeborne.selenide.Configuration;
+
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Assert;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import stellarBurgerPages.MainPageStellarBurger;
 import stellarBurgerPages.RegistrationPage;
 import stellarBurgerPages.SignInPage;
-
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
@@ -27,7 +25,7 @@ public class RegistrationTest {
 
     @DisplayName("Регистрация с корректным паролем")
     @Test
-    public void successRegistrationWithCorrectPasswordTest(){
+    public void successRegistrationWithCorrectPasswordTest() {
         mainPage.clickAccountButtonInHeader()
                 .clickRegistrationLink()
                 .registration(name, email, correctPassword);
@@ -36,7 +34,7 @@ public class RegistrationTest {
 
     @DisplayName("Регистрация с коротким паролем меньше 6 символов")
     @Test
-    public void failRegistrationWithIncorrectPasswordTest(){
+    public void failRegistrationWithIncorrectPasswordTest() {
         mainPage.clickAccountButtonInHeader()
                 .clickRegistrationLink()
                 .registration(name, email, incorrectPassword);

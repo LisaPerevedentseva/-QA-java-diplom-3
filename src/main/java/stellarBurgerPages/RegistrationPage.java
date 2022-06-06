@@ -11,38 +11,38 @@ import static com.codeborne.selenide.Selenide.page;
 public class RegistrationPage extends HeaderElements {
 
     // поля Имя и email
-    @FindBy(how= How.XPATH, using=".//input[@name='name']")
+    @FindBy(how = How.XPATH, using = ".//input[@name='name']")
     private ElementsCollection nameAndEmailFields;
 
     // поле Пароль
-    @FindBy(how= How.XPATH, using=".//input[@name='Пароль']")
+    @FindBy(how = How.XPATH, using = ".//input[@name='Пароль']")
     private SelenideElement passwordField;
 
     // кнопка Зарегистрироваться
-    @FindBy(how= How.XPATH, using=".//button[text()='Зарегистрироваться']")
+    @FindBy(how = How.XPATH, using = ".//button[text()='Зарегистрироваться']")
     private SelenideElement registrationButton;
 
     // нотификация Некорректный пароль
-    @FindBy(how= How.XPATH, using=".//p[text()='Некорректный пароль']")
+    @FindBy(how = How.XPATH, using = ".//p[text()='Некорректный пароль']")
     private SelenideElement errorNotification;
 
     @Step("Проверка отображения нотификации \"Некорректный пароль\"")
-    public boolean isErrorNotificationVisible(){
+    public boolean isErrorNotificationVisible() {
         return errorNotification.isDisplayed();
     }
 
     // кнопка Войти
-    @FindBy(how= How.XPATH, using=".//a[text()='Войти']")
+    @FindBy(how = How.XPATH, using = ".//a[text()='Войти']")
     private SelenideElement loginLink;
 
-    @Step ("Нажатие кнопки \"Войти\" на странице регистрации")
-    public SignInPage clickLoginLink(){
+    @Step("Нажатие кнопки \"Войти\" на странице регистрации")
+    public SignInPage clickLoginLink() {
         loginLink.click();
         return page(SignInPage.class);
     }
 
-    @Step ("Регистрация пользователя")
-    public void registration (String name, String email, String password){
+    @Step("Регистрация пользователя")
+    public void registration(String name, String email, String password) {
         nameAndEmailFields.get(0).setValue(name);
         nameAndEmailFields.get(1).setValue(email);
         passwordField.setValue(password);

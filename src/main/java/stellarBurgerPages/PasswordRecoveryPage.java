@@ -14,7 +14,7 @@ public class PasswordRecoveryPage extends HeaderElements {
     private SelenideElement enterButtonOnRecoveryPage;
 
     @Step("Нажатие на кнопку \"Войти\" на странице восстановления пароля")
-    public SignInPage clickEnterButtonOnRecoveryPage(){
+    public SignInPage clickEnterButtonOnRecoveryPage() {
         enterButtonOnRecoveryPage.click();
         return page(SignInPage.class);
     }
